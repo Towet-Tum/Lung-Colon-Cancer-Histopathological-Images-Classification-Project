@@ -1,0 +1,33 @@
+stages:
+  data_ingestion:
+    cmd: python src/LungColonClassifier/pipeline/stage_01_data_ingestion.py
+    deps:
+      - src/LungColonClassifier/pipeline/stage_01_data_ingestion.py
+      - config/config.yaml
+    outs: 
+      - artifacts/data_ingestion/lung_colon_image_set
+
+  training:
+    cmd: python src/LungColonClassifier/pipeline/stage_02_model_trainer.py
+    deps:
+      - src/LungColonClassifier/pipeline/stage_02_model_trainer.py
+      - config/config.yaml
+      - params.yaml
+      - artifacts/data_ingestion/lung_colon_image_set
+    outs:
+      - artifacts/training/lung.model.Xception.h5
+
+  evaluation:
+    cmd: python src/LungColonClassifier/pipeline/stage_03_model_evaluation.py
+    deps:
+     - src/LungColonClassifier/pipeline/stage_03_model_evaluation.py
+     - artifacts/data_ingestion/lung_colon_image_set
+     - config/config.yaml
+     - params.yaml
+     - artifacts/training/lung.model.Xception.h5
+    metrics:
+      - scores.json:
+          cache: False
+
+
+    
