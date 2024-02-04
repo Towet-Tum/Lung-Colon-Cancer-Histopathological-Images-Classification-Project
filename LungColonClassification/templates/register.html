@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid contact py-5" style="background: var(--bs-primary);">
+    <div class="container pt-5">
+        <div class="row g-4 align-items-center">
+            
+            <div class="col-lg-6">
+                <div class="contact-form rounded p-5" style="margin: auto; width: 100%; margin-left: 250px;">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h1 class="display-6 mb-4">Create An Account</h1>
+                        <div class="row gx-4 gy-3">
+                            <div class="col-xl-6">
+                                <input type="text" class="form-control bg-white border-0 py-3 px-4" name="username" placeholder="User Name">
+                            </div>
+                            
+                            <div class="col-xl-6">
+                                <input type="email" class="form-control bg-white border-0 py-3 px-4"  name="email" placeholder="Your Email">
+                            </div>
+                            <div class="col-xl-6">
+                                <input type="password" class="form-control bg-white border-0 py-3 px-4" name="password" placeholder="Password">
+                            </div>
+                           
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-primary-outline-0 w-100 py-3 px-5" type="submit">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            
+
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

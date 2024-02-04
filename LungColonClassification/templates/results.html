@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<div class="container  py-5 mt-5" >
+    <div class="row">
+        <!-- Left Column with Title and Image -->
+        <div class="col-md-6 mb-5">
+            <h2 class="mb-4">Uploaded Image</h2>
+            <img src="{{ record.image.url }}" alt="Image" class="img-fluid" width="300" height="300">
+        </div>
+
+        <!-- Right Column with Title, Subtitles, Paragraph, and Button -->
+        <div class="col-md-6 mb-5">
+            <h2 class="mb-4">Predicted Results</h2>
+            <h5 class="text-muted mb-3">Caner Type :: {{record.pred_class}}</h5>
+            <h5 class="text-muted mb-3">Confidence :: {{ record.score }}</h5>
+            <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a class="btn btn-primary btn-primary-outline-0 rounded-pill py-3 px-5" href="{% url 'dashboard' %}">History</a>
+        </div>
+    </div>
+</div>
+<!-- Add space at the bottom with other sections -->
+<div class="mt-5"><!-- Add margin-top for the next section --></div>
+
+
+       
+
+{% endblock content %}

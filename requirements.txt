@@ -16,4 +16,7 @@ joblib
 types-PyYAML
 scipy
 Django
+psycopg2-binary==2.9.1
+django-cors-headers
+whitenoise
 -e .
