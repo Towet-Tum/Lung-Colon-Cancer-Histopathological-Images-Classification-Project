@@ -142,3 +142,24 @@ def about(request):
 
 def service(request):
     return render(request, "service.html")
+
+
+def train_model(request):
+    os.chdir("../")
+    os.system("dvc repro")
+
+    # Get the current working directory
+    current_directory = os.getcwd()
+    print(f"Current Working Directory: {current_directory}")
+
+    # Move to the next folder (replace 'next_folder' with the actual folder name)
+    next_folder = "LungColonClassification"
+    next_folder_path = os.path.join(current_directory, next_folder)
+
+    # Change the current working directory to the next folder
+    os.chdir(next_folder_path)
+
+    # Print the new working directory
+    new_directory = os.getcwd()
+    print(f"New Working Directory: {new_directory}")
+    return JsonResponse("Training completed succefully", safe=False)

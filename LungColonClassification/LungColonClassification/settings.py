@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-d2!p2#f)lrxazxz(h+@gn_l($$vth-v0@$^4uhfmhvx7riwfbj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["malaria.azurewebsites.net", "127.0.0.1"]
+ALLOWED_HOSTS = ["lungcolon.azurewebsites.net", "127.0.0.1"]
 
 
 # Application definition
@@ -39,12 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "lungColonApp",
+    "corsheaders",
 ]
 
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -126,14 +126,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = "static/"
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, "assets")]  # Commented out for development
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 
 CSRF_TRUSTED_ORIGINS = ["https://lungcolon.azurewebsites.net"]
 
