@@ -94,10 +94,11 @@ export MLFLOW_TRACKING_PASSWORD=39c66009c3d7d6d659cbc691e65a93c46873d3c4
 ```
 
 3 Set up the database and perform migrations:
-
+```
 python manage.py makemigrations
 python manage.py migrate
 ```
+
 # Start the Django development server:
 
 ```
@@ -115,10 +116,14 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Azure CI-CD Deployment 
 
+```
 docker build -t lungcolon.azurecr.io/lungcolon:latest .
-docker login lungcolon.azurecr.io
-docker push lungcolon.azurecr.io/lungcolon
 
-#Save Password
+docker login lungcolon.azurecr.io
+
+docker push lungcolon.azurecr.io/lungcolon
+```
+
+# Save Password
 
 MBnVS1hXYDuBB9WdKdRYezKlX4iZ3nWGfBTDmEkaj6+ACRDkD2vU
